@@ -1,0 +1,212 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Updated to Poppins */
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background: #1a1a1a; /* Dark background */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    width: 50px; /* Adjust logo size */
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Gold color on hover */
+}
+
+main {
+    padding: 0; /* Remove padding to allow for continuous stripes */
+}
+
+#hero {
+    background: linear-gradient(135deg, #007BFF 25%, #1a1a1a 25%, #1a1a1a 50%, #007BFF 50%, #007BFF 75%, #1a1a1a 75%, #1a1a1a 100%); /* Thick blue diagonal stripes */
+    text-align: center;
+    padding: 60px 0;
+    color: white;
+}
+
+section {
+    background: repeating-linear-gradient(
+        135deg,
+        #007BFF,
+        #007BFF 25%,
+        #1a1a1a 25%,
+        #1a1a1a 50%
+    ); /* Continuous diagonal stripes */
+    color: white;
+    padding: 40px 0;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #fff; /* White color for section headings */
+    text-align: center;
+}
+
+#hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 12px 20px;
+    background: #007BFF; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+#pricing {
+    background: #e0e0e0; /* Darker white for the pricing section */
+    color: #333; /* Dark text color for better contrast */
+    overflow: hidden; /* Prevent overflow from animation */
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.pricing-option {
+    position: relative; /* Position relative for the background animation */
+    overflow: hidden; /* Hide overflow for the moving background */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #f9f9f9; /* Light background for pricing options */
+}
+
+.pricing-option h3 {
+    color: #007BFF; /* Blue color for pricing headings */
+    margin-bottom: 10px;
+}
+
+.pricing-option p {
+    color: #A3C1DA; /* Baby blue color for pricing text */
+    font-size: 1.5em; /* Larger font size for pricing */
+}
+
+/* Animation for the background stripes */
+.pricing-option::before {
+    content: '';
+    position : absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        135deg,
+        #007BFF,
+        #007BFF 25%,
+        #1a1a1a 25%,
+        #1a1a1a 50%
+    );
+    animation: move-stripes 5s linear infinite; /* Animation for moving stripes */
+    z-index: 0; /* Place behind the content */
+    opacity: 0.5; /* Adjust opacity for better visibility */
+}
+
+.pricing-option h3,
+.pricing-option p,
+button {
+    position: relative; /* Ensure text is above the animated background */
+    z-index: 1; /* Bring text above the background */
+}
+
+@keyframes move-stripes {
+    0% {
+        background-position: 0 0; /* Start position */
+    }
+    100% {
+        background-position: 100% 0; /* End position */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #1a1a1a; /* Dark background */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .pricing-table {
+        flex-direction: column;
+    }
+
+    .pricing-option {
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
